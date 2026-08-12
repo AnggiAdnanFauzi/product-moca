@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Original Product Moca | Fashion Muslimah Elegan</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        moca: {
+                            50: '#fdf8f6',
+                            100: '#f2e8e5',
+                            200: '#eaddd7',
+                            300: '#e0cec7',
+                            400: '#d2bab0',
+                            500: '#a37c6b', /* Primary Moca Color */
+                            600: '#8b6453',
+                            700: '#6d4c3d',
+                            800: '#52372a',
+                            900: '#382319',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Kumon Font', 'Montserrat', 'sans-serif'],
+                        classic: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @font-face {
+            font-family: 'Kumon Font';
+            src: url('assets/fonts/Kumon.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        /* Custom Styles for aesthetic touches */
+        .glass-nav {
+            background: rgba(82, 55, 42, 0.95); /* moca-800 */
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-overlay {
+            background: linear-gradient(to right, rgba(253, 248, 246, 0.9) 0%, rgba(253, 248, 246, 0.4) 100%);
+        }
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+        .product-img {
+            transition: transform 0.5s ease;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-moca-50 antialiased">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer gap-3" onclick="window.scrollTo(0,0)">
+                    <!-- CSS Logo for Perfect Clarity -->
+                    <div class="flex flex-col items-center justify-center h-10 w-10 border-[1.5px] border-white/90 rounded-sm bg-transparent shrink-0">
+                        <span class="text-white text-[11px] font-bold leading-[1.1] tracking-[0.15em] font-serif ml-[1.5px]">MO</span>
+                        <span class="text-white text-[11px] font-bold leading-[1.1] tracking-[0.15em] font-serif ml-[1.5px]">CA</span>
+                    </div>
+                    <span class="font-serif text-2xl font-bold text-white tracking-wider hidden sm:block">MOCA<span class="text-moca-300">.</span></span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#koleksi" class="text-gray-200 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase">Koleksi</a>
+                    <a href="#bestseller" class="text-gray-200 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase">Best Seller</a>
+                    <a href="#promo" class="text-gray-200 hover:text-white transition-colors text-sm font-medium tracking-wide uppercase">Promo</a>
+                    <button onclick="orderViaWA('Halo Moca, saya ingin bertanya tentang produk terbaru.')" class="bg-white hover:bg-gray-100 text-moca-800 px-6 py-2.5 rounded-full transition-colors text-sm font-medium shadow-md flex items-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> Hubungi Kami
+                    </button>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-gray-200 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-moca-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#koleksi" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-moca-600 hover:bg-moca-50 rounded-md">Koleksi</a>
+                <a href="#bestseller" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-moca-600 hover:bg-moca-50 rounded-md">Best Seller</a>
+                <a href="#promo" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-moca-600 hover:bg-moca-50 rounded-md">Promo</a>
+                <button onclick="orderViaWA('Halo Moca, saya ingin bertanya tentang produk terbaru.')" class="mt-4 w-full bg-moca-600 text-white px-3 py-3 rounded-md text-base font-medium flex justify-center items-center gap-2">
+                    <i class="fab fa-whatsapp text-lg"></i> Hubungi Kami
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Placeholder Hero Image - Replace src with assets/images/hero.jpg -->
+        <div class="absolute inset-0 z-0 bg-moca-200">
+            <!-- You can replace this URL with your local image: 'assets/images/hero.jpg' -->
+            <img src="produk/Airi Blouse/1.b.2.jpg" alt="Airi Blouse Terbaru" class="w-full h-full object-cover object-center" id="hero-image">
+        </div>
+        <div class="absolute inset-0 hero-overlay z-10"></div>
+        
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl">
+                <span class="block text-moca-600 font-medium tracking-[0.2em] uppercase text-sm mb-4">Original Product Moca</span>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold text-gray-900 leading-tight mb-6">
+                    Tampil Anggun <br>
+                    <span class="text-moca-600 italic font-normal">Setiap Saat.</span>
+                </h1>
+                <p class="text-lg text-gray-700 mb-10 max-w-lg leading-relaxed">
+                    Temukan koleksi busana muslimah eksklusif dari Solo. Didesain dengan material premium untuk kenyamanan dan keanggunan gaya Anda sehari-hari.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#koleksi" class="inline-flex justify-center items-center bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-full transition-colors text-base font-medium">
+                        Lihat Koleksi <i class="fas fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promo Banner -->
+    <section id="promo" class="bg-moca-600 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between bg-moca-500 rounded-2xl p-8 md:p-12 shadow-xl relative overflow-hidden">
+                <!-- Decorative Elements -->
+                <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-white opacity-10 rounded-full blur-2xl"></div>
+                <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-40 h-40 bg-moca-900 opacity-20 rounded-full blur-2xl"></div>
+                
+                <div class="relative z-10 text-center md:text-left mb-6 md:mb-0">
+                    <span class="inline-block py-1 px-3 rounded-full bg-white text-moca-600 text-xs font-bold tracking-wider uppercase mb-3">Promo Spesial</span>
+                    <h2 class="text-3xl md:text-4xl font-serif font-bold text-white mb-2">Diskon Hingga 20%</h2>
+                    <p class="text-moca-100 text-lg">Untuk pembelian koleksi Gamis Premium minggu ini.</p>
+                </div>
+                <div class="relative z-10">
+                    <button onclick="orderViaWA('Halo, saya ingin klaim Promo Diskon 20% Gamis Premium.')" class="bg-white text-moca-600 hover:bg-moca-50 px-8 py-4 rounded-full font-bold transition-transform transform hover:-translate-y-1 shadow-lg flex items-center gap-2">
+                        <i class="fab fa-whatsapp text-xl text-green-500"></i> Klaim Promo via WA
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Seller Section -->
+    <section id="bestseller" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-moca-500 font-medium tracking-widest uppercase text-sm">Pilihan Favorit</span>
+                <h2 class="mt-2 text-4xl font-serif font-bold text-gray-900">Best Seller Kami</h2>
+                <div class="mt-4 w-24 h-1 bg-moca-300 mx-auto rounded-full"></div>
+                <p class="mt-6 text-gray-600">Koleksi terlaris yang paling banyak dicari oleh pelanggan setia Moca.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Product 1 -->
+                <div class="product-card group cursor-pointer" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.5" data-tilt-scale="1.05" onclick="orderViaWA('Halo Moca, saya mau pesan produk Best Seller: Airi Blouse.')">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 bg-gray-100 aspect-[3/4]">
+                        <img src="produk/Airi Blouse/1.a.jpg" alt="Airi Blouse" class="product-img w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white text-xs font-bold px-3 py-1 rounded-full shadow-sm tracking-wide uppercase">Best Seller</div>
+                        <!-- Hover Overlay CTA -->
+                        <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <span class="bg-white text-gray-900 px-6 py-3 rounded-full text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                                Beli via WhatsApp
+                            </span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-serif font-semibold text-gray-900 mb-2">Airi Blouse</h3>
+                        <p class="text-moca-600 font-medium">Rp 285.000</p>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="product-card group cursor-pointer" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.5" data-tilt-scale="1.05" onclick="orderViaWA('Halo Moca, saya mau pesan produk Best Seller: Filya Blouse.')">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 bg-gray-100 aspect-[3/4]">
+                        <img src="produk/Filya Blouse/2.a.jpg" alt="Filya Blouse" class="product-img w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-white text-xs font-bold px-3 py-1 rounded-full shadow-sm tracking-wide uppercase">Trending</div>
+                        <!-- Hover Overlay CTA -->
+                        <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <span class="bg-white text-gray-900 px-6 py-3 rounded-full text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                                Beli via WhatsApp
+                            </span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-serif font-semibold text-gray-900 mb-2">Filya Blouse</h3>
+                        <p class="text-moca-600 font-medium">Rp 315.000</p>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="product-card group cursor-pointer" data-tilt data-tilt-glare="true" data-tilt-max-glare="0.5" data-tilt-scale="1.05" onclick="orderViaWA('Halo Moca, saya mau pesan produk Best Seller: Verya Zacket.')">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 bg-gray-100 aspect-[3/4]">
+                        <img src="produk/Verya Zacket/3.a.jpg" alt="Verya Zacket" class="product-img w-full h-full object-cover">
+                        <!-- Hover Overlay CTA -->
+                        <div class="absolute inset-0 bg-black bg-opacity-20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
+                            <span class="bg-white text-gray-900 px-6 py-3 rounded-full text-sm font-medium transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
+                                Beli via WhatsApp
+                            </span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-xl font-serif font-semibold text-gray-900 mb-2">Verya Zacket</h3>
+                        <p class="text-moca-600 font-medium">Rp 195.000</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section id="koleksi" class="py-24 bg-moca-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <span class="text-moca-500 font-medium tracking-widest uppercase text-sm">Eksplorasi</span>
+                    <h2 class="mt-2 text-4xl font-serif font-bold text-gray-900">Katalog Lengkap</h2>
+                </div>
+                <div class="flex gap-2 filter-buttons">
+                    <button data-filter="all" class="filter-btn active px-5 py-2 rounded-full border border-moca-600 bg-moca-600 text-white text-sm font-medium transition-colors">Semua</button>
+                    <button data-filter="blouse" class="filter-btn px-5 py-2 rounded-full border border-gray-300 text-gray-600 hover:border-moca-500 hover:text-moca-600 text-sm font-medium transition-colors">Blouse</button>
+                    <button data-filter="tunik" class="filter-btn px-5 py-2 rounded-full border border-gray-300 text-gray-600 hover:border-moca-500 hover:text-moca-600 text-sm font-medium transition-colors">Tunik</button>
+                </div>
+            </div>
+
+            <!-- Grid 4 Columns -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-12">
+                <!-- Prod 4 -->
+                <div class="group catalog-item" data-category="blouse">
+                    <div class="relative overflow-hidden rounded-xl mb-4 bg-gray-200 aspect-[3/4]">
+                        <img src="produk/Kamer Blouse/4.a.jpg" alt="Kamer Blouse" class="product-img w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-serif font-semibold text-gray-900">Kamer Blouse</h4>
+                        <p class="text-gray-500 text-sm mb-3">Produk Terbaru</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-moca-600 font-medium">Rp 250.000</span>
+                            <button onclick="orderViaWA('Halo, pesan Kamer Blouse')" class="text-gray-400 hover:text-moca-600 p-2 rounded-full hover:bg-moca-100 transition-colors">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Prod 5 -->
+                <div class="group catalog-item" data-category="tunik">
+                    <div class="relative overflow-hidden rounded-xl mb-4 bg-gray-200 aspect-[3/4]">
+                        <img src="produk/Liyta Long Tunik/5.a.jpg" alt="Liyta Long Tunik" class="product-img w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-serif font-semibold text-gray-900">Liyta Long Tunik</h4>
+                        <p class="text-gray-500 text-sm mb-3">Produk Terbaru</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-moca-600 font-medium">Rp 175.000</span>
+                            <button onclick="orderViaWA('Halo, pesan Liyta Long Tunik')" class="text-gray-400 hover:text-moca-600 p-2 rounded-full hover:bg-moca-100 transition-colors">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prod 6 -->
+                <div class="group catalog-item" data-category="blouse">
+                    <div class="relative overflow-hidden rounded-xl mb-4 bg-gray-200 aspect-[3/4]">
+                        <img src="produk/Airi Blouse/1.b.1.jpg" alt="Airi Blouse" class="product-img w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-serif font-semibold text-gray-900">Airi Blouse (Varian 2)</h4>
+                        <p class="text-gray-500 text-sm mb-3">Pilihan Warna Lain</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-moca-600 font-medium">Rp 285.000</span>
+                            <button onclick="orderViaWA('Halo, pesan Airi Blouse Varian 2')" class="text-gray-400 hover:text-moca-600 p-2 rounded-full hover:bg-moca-100 transition-colors">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prod 7 -->
+                <div class="group catalog-item" data-category="blouse">
+                    <div class="relative overflow-hidden rounded-xl mb-4 bg-gray-200 aspect-[3/4]">
+                        <img src="produk/Filya Blouse/2.b.1.jpg" alt="Filya Blouse" class="product-img w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-serif font-semibold text-gray-900">Filya Blouse (Varian 2)</h4>
+                        <p class="text-gray-500 text-sm mb-3">Pilihan Warna Lain</p>
+                        <div class="flex items-center justify-between">
+                            <span class="text-moca-600 font-medium">Rp 315.000</span>
+                            <button onclick="orderViaWA('Halo, pesan Filya Blouse Varian 2')" class="text-gray-400 hover:text-moca-600 p-2 rounded-full hover:bg-moca-100 transition-colors">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center">
+                <button onclick="orderViaWA('Halo, saya ingin melihat katalog lengkap lainnya.')" class="border-2 border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white px-8 py-3 rounded-full font-medium transition-colors inline-flex items-center gap-2">
+                    Tanya Katalog Lengkap via WA <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section id="ulasan" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-moca-500 font-medium tracking-widest uppercase text-sm">Kata Mereka</span>
+                <h2 class="mt-2 text-4xl font-serif font-bold text-gray-900">Ulasan Pembeli</h2>
+                <div class="mt-4 w-24 h-1 bg-moca-300 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-moca-50 p-8 rounded-2xl shadow-sm border border-moca-100 hover:shadow-md transition-shadow">
+                    <div class="flex text-yellow-400 mb-4 text-lg">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"Bagus banget bajunya! Bahannya adem, jatuh, dan nggak nerawang sama sekali. Pengirimannya juga super cepat."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-moca-200 rounded-full flex items-center justify-center text-moca-700 font-bold text-lg">A</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Aisyah Putri</h4>
+                            <p class="text-sm text-gray-500">Pembeli Terverifikasi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-moca-50 p-8 rounded-2xl shadow-sm border border-moca-100 hover:shadow-md transition-shadow">
+                    <div class="flex text-yellow-400 mb-4 text-lg">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"Puas banget belanja di Moca. Adminnya ramah waktu ditanya ukuran. Jahitannya rapi. Next mau order warna lain."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-moca-200 rounded-full flex items-center justify-center text-moca-700 font-bold text-lg">N</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Nadia Maharani</h4>
+                            <p class="text-sm text-gray-500">Pembeli Terverifikasi</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-moca-50 p-8 rounded-2xl shadow-sm border border-moca-100 hover:shadow-md transition-shadow">
+                    <div class="flex text-yellow-400 mb-4 text-lg">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="text-gray-600 mb-6 italic leading-relaxed">"Warnanya sesuai ekspektasi, secantik yang di foto. Cocok banget buat dipakai ngantor atau hangout. Recommended!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-moca-200 rounded-full flex items-center justify-center text-moca-700 font-bold text-lg">S</div>
+                        <div>
+                            <h4 class="font-bold text-gray-900">Siti Sarah</h4>
+                            <p class="text-sm text-gray-500">Pembeli Terverifikasi</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="py-20 border-t border-b border-moca-200 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-moca-100 rounded-full flex items-center justify-center mx-auto mb-6 text-moca-600">
+                        <i class="fas fa-gem text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-gray-900 mb-3">Kualitas Premium</h3>
+                    <p class="text-gray-600">Menggunakan bahan pilihan terbaik yang nyaman dipakai seharian tanpa rasa gerah.</p>
+                </div>
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-moca-100 rounded-full flex items-center justify-center mx-auto mb-6 text-moca-600">
+                        <i class="fas fa-truck-fast text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-gray-900 mb-3">Pengiriman Cepat</h3>
+                    <p class="text-gray-600">Pesanan diproses langsung dari Solo dan dikirim ke seluruh Indonesia dengan aman.</p>
+                </div>
+                <div class="p-6">
+                    <div class="w-16 h-16 bg-moca-100 rounded-full flex items-center justify-center mx-auto mb-6 text-moca-600">
+                        <i class="fas fa-headset text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-serif font-bold text-gray-900 mb-3">Layanan Ramah</h3>
+                    <p class="text-gray-600">Admin kami siap membantu Anda memilih ukuran dan warna yang tepat via WhatsApp.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <!-- Brand -->
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <!-- CSS Logo for Perfect Clarity -->
+                        <div class="flex flex-col items-center justify-center h-12 w-12 border-2 border-white/90 rounded-sm bg-[#52372a] shrink-0">
+                            <span class="text-white text-[13px] font-bold leading-[1.1] tracking-[0.15em] font-serif ml-[2px]">MO</span>
+                            <span class="text-white text-[13px] font-bold leading-[1.1] tracking-[0.15em] font-serif ml-[2px]">CA</span>
+                        </div>
+                        <span class="font-serif text-3xl font-bold text-white tracking-wider">MOCA<span class="text-moca-500">.</span></span>
+                    </div>
+                    <p class="text-gray-400 mb-6 text-sm leading-relaxed space-y-1">
+                        <span class="block">📌 ORIGINAL PRODUK MOCA</span>
+                        <span class="block">📌 PRODUSEN REALPICT</span>
+                        <span class="block">🤎 Join Reseller & Dropship GRATIS</span>
+                        <span class="block">🚚 Pengiriman dari SOLO</span>
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.instagram.com/moca_originals" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-moca-500 hover:text-white transition-colors">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-moca-500 hover:text-white transition-colors">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-moca-500 hover:text-white transition-colors">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 font-serif tracking-wide">Navigasi</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-moca-400 transition-colors">Beranda</a></li>
+                        <li><a href="#koleksi" class="hover:text-moca-400 transition-colors">Koleksi Terbaru</a></li>
+                        <li><a href="#bestseller" class="hover:text-moca-400 transition-colors">Best Seller</a></li>
+                        <li><a href="#promo" class="hover:text-moca-400 transition-colors">Promo Spesial</a></li>
+                    </ul>
+                </div>
+
+                <!-- Info -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 font-serif tracking-wide">Bantuan</h4>
+                    <ul class="space-y-3 text-gray-400 text-sm">
+                        <li><a href="#" class="hover:text-moca-400 transition-colors">Panduan Ukuran</a></li>
+                        <li><a href="#" class="hover:text-moca-400 transition-colors">Cara Pemesanan</a></li>
+                        <li><a href="#" class="hover:text-moca-400 transition-colors">Pengiriman & Retur</a></li>
+                        <li><a href="#" class="hover:text-moca-400 transition-colors">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 font-serif tracking-wide">Kontak Kami</h4>
+                    <ul class="space-y-4 text-gray-400 text-sm">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-moca-500"></i>
+                            <span>Kota Surakarta (Solo), Jawa Tengah, Indonesia</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fab fa-whatsapp text-moca-500"></i>
+                            <span>+62 882-1524-1050</span>
+                        </li>
+                        <li class="mt-6">
+                            <button onclick="orderViaWA('Halo Admin Moca, saya ingin bertanya-tanya dulu.')" class="w-full bg-moca-600 hover:bg-moca-700 text-white px-4 py-3 rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2">
+                                <i class="fab fa-whatsapp text-lg"></i> Chat Admin Sekarang
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+                <p>&copy; 2026 Original Product Moca. All rights reserved.</p>
+                <p class="mt-2 md:mt-0">Designed by Antigravity</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="#" onclick="orderViaWA('Halo, saya butuh bantuan untuk belanja di Moca.')" class="fixed bottom-6 right-6 w-14 h-14 bg-green-500 text-white rounded-full flex items-center justify-center shadow-2xl hover:bg-green-600 transition-colors z-50 transform hover:scale-110">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
