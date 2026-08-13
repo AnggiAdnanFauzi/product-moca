@@ -4,19 +4,12 @@
 function orderViaWA(message) {
     const phoneNumber = "6288215241050"; // Moca's WhatsApp Number
     
-    // Check if user is on a mobile device
-    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    
     // URL encode the message
     const encodedMessage = encodeURIComponent(message);
     
-    // Construct the appropriate WhatsApp URL
-    let waUrl = "";
-    if (isMobile) {
-        waUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
-    } else {
-        waUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
-    }
+    // Construct the appropriate WhatsApp URL using the official wa.me link
+    // This automatically handles redirecting to the app on mobile or web on desktop
+    const waUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
     
     // Open in a new tab/window
     window.open(waUrl, '_blank');
